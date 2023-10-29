@@ -3,14 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package studikasus;
+
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author mac
- */
 public class FormInput extends AbstractTableModel {
     // Array yang menyimpan nama-nama kolom
     private String[] columnNames = {"Nama", "Nomor", "Jenis Kelamin", "Alamat"};
@@ -55,4 +52,27 @@ public class FormInput extends AbstractTableModel {
         // Memberitahu tabel bahwa baris baru telah ditambahkan
         fireTableRowsInserted(data.size() - 1, data.size() - 1);
     }
+  
+    public List<String> getRowData(int rowIndex) {
+        return data.get(rowIndex);
+    }
+
+
+    public void removeRow(int rowIndex) {
+        data.remove(rowIndex);
+        fireTableRowsDeleted(rowIndex, rowIndex);
+    }
+
+     public ArrayList<ArrayList<String>> getData() {
+        return data;
+    }
+
+     public void remove(int row) {
+        data.remove(row);
+        fireTableRowsDeleted(row, row);
+    }
+
+
+ 
+    
 }
